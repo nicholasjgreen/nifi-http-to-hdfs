@@ -1,4 +1,4 @@
-#Nifi HTTP to HDFS
+# Nifi HTTP to HDFS
 This is a working example of how to accept HTTP POST messages in Nifi and deliver them to HDFS.
 
 
