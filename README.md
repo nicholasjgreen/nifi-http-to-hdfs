@@ -21,6 +21,7 @@ This is a working example of how to accept HTTP POST messages in Nifi and delive
     1. On each component, right click and select "Start"
 1. Upload some files
     ```bash
+    ./scripts/create_files.sh
     ./scripts/upload.sh
     ```
 1. Check the content of hdfs
