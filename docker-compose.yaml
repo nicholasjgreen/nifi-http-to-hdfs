@@ -18,3 +18,4 @@ services:
     volumes:
       - ./scripts/:/app/scripts
       - ./conf/:/app/conf
+      - ./nifi_sig_check/:/app/nifi_sig_check/
