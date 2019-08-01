@@ -18,14 +18,10 @@ package com.github.nicholasjgreen.processors.nifi_sig_check;
 
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.flowfile.FlowFile;
-import org.apache.nifi.annotation.behavior.ReadsAttribute;
-import org.apache.nifi.annotation.behavior.ReadsAttributes;
-import org.apache.nifi.annotation.behavior.WritesAttribute;
-import org.apache.nifi.annotation.behavior.WritesAttributes;
 import org.apache.nifi.annotation.lifecycle.OnScheduled;
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
-import org.apache.nifi.annotation.documentation.SeeAlso;
 import org.apache.nifi.annotation.documentation.Tags;
+import org.apache.nifi.logging.ComponentLog;
 import org.apache.nifi.processor.exception.ProcessException;
 import org.apache.nifi.processor.AbstractProcessor;
 import org.apache.nifi.processor.ProcessContext;
@@ -40,11 +36,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Tags({"example"})
-@CapabilityDescription("Provide a description")
-@SeeAlso({})
-@ReadsAttributes({@ReadsAttribute(attribute="", description="")})
-@WritesAttributes({@WritesAttribute(attribute="", description="")})
+
+// Useful example code here: https://www.nifi.rocks/developing-a-custom-apache-nifi-processor-json/
+// Specification for Signature checking here: https://tools.ietf.org/id/draft-cavage-http-signatures-11.html
+
+@Tags({"nicholasjgreen"})
+@CapabilityDescription("Checks an HTTP signature for validity")
+//@SeeAlso({})
+//@ReadsAttributes({@ReadsAttribute(attribute="Authorization", description="Inspects this attribute to determine how to do auth. Other attributes are read depending on the content of the Authorisation headerde")})
+//@WritesAttributes({@WritesAttribute(attribute="", description="")})
 public class SignatureCheckProcessor extends AbstractProcessor {
 
     public static final PropertyDescriptor MY_PROPERTY = new PropertyDescriptor
@@ -55,24 +55,27 @@ public class SignatureCheckProcessor extends AbstractProcessor {
             .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
 
-    public static final Relationship MY_RELATIONSHIP = new Relationship.Builder()
-            .name("MY_RELATIONSHIP")
-            .description("Example relationship")
+    public static final Relationship SUCCESS_RELATIONSHIP = new Relationship.Builder()
+            .name("SUCCESS")
+            .description("Success relationship")
             .build();
 
-    private List<PropertyDescriptor> descriptors;
+    private List<PropertyDescriptor> properties;
 
     private Set<Relationship> relationships;
+    private ComponentLog logger;
+    //private ComponentLog logger;
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
         final List<PropertyDescriptor> descriptors = new ArrayList<PropertyDescriptor>();
         descriptors.add(MY_PROPERTY);
-        this.descriptors = Collections.unmodifiableList(descriptors);
+        this.properties = Collections.unmodifiableList(descriptors);
 
         final Set<Relationship> relationships = new HashSet<Relationship>();
-        relationships.add(MY_RELATIONSHIP);
+        relationships.add(SUCCESS_RELATIONSHIP);
         this.relationships = Collections.unmodifiableSet(relationships);
+        this.logger = context.getLogger();
     }
 
     @Override
@@ -82,20 +85,25 @@ public class SignatureCheckProcessor extends AbstractProcessor {
 
     @Override
     public final List<PropertyDescriptor> getSupportedPropertyDescriptors() {
-        return descriptors;
+        return properties;
     }
 
-    @OnScheduled
+    /*@OnScheduled
     public void onScheduled(final ProcessContext context) {
 
-    }
+    }*/
 
     @Override
     public void onTrigger(final ProcessContext context, final ProcessSession session) throws ProcessException {
+        logger.info("Triggered");
         FlowFile flowFile = session.get();
         if ( flowFile == null ) {
+            logger.info("No flow :(");
             return;
         }
-        // TODO implement
+        logger.info("Getting auth");
+        String authDescriptor = flowFile.getAttribute("Authorization");
+        logger.info("Got auth: " + authDescriptor);
+        session.transfer(flowFile, SUCCESS_RELATIONSHIP);
     }
 }
