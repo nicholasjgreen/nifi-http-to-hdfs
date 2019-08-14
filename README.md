@@ -43,3 +43,5 @@ Found 1 items
 -rw-r--r--   3 root supergroup  104857600 2019-07-29 08:30 /collections/collection2/72833668091783
 ```
     
+As bonus material, there is also a template in the same folder that shows how to add a suffix to 
+filenames when they are written into HDFS. 
