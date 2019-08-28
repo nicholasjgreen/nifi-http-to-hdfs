@@ -1,17 +1,17 @@
 <?xml version="1.0" ?>
 <template encoding-version="1.1">
   <description></description>
-  <groupId>2e94f203-016c-1000-0736-1d2ab16b51d1</groupId>
+  <groupId>d7525272-016c-1000-70fb-08ae93c06d2c</groupId>
   <name>HTTP to HDFS</name>
   <snippet>
     <connections>
-      <id>100a9377-eb7f-372b-0000-000000000000</id>
-      <parentGroupId>07a67c92-8cf8-32a9-0000-000000000000</parentGroupId>
+      <id>38008674-f9a5-3f6d-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
       <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
       <backPressureObjectThreshold>10000</backPressureObjectThreshold>
       <destination>
-        <groupId>07a67c92-8cf8-32a9-0000-000000000000</groupId>
-        <id>457748d1-00cd-3e75-0000-000000000000</id>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>33161613-e064-391e-0000-000000000000</id>
         <type>PROCESSOR</type>
       </destination>
       <flowFileExpiration>0 sec</flowFileExpiration>
@@ -19,20 +19,20 @@
       <name></name>
       <selectedRelationships>success</selectedRelationships>
       <source>
-        <groupId>07a67c92-8cf8-32a9-0000-000000000000</groupId>
-        <id>31c3f31e-8dd3-3534-0000-000000000000</id>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>636e6687-cc24-3c89-0000-000000000000</id>
         <type>PROCESSOR</type>
       </source>
       <zIndex>0</zIndex>
     </connections>
     <connections>
-      <id>18471eba-ed12-31d3-0000-000000000000</id>
-      <parentGroupId>07a67c92-8cf8-32a9-0000-000000000000</parentGroupId>
+      <id>5e419c85-3f99-32ce-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
       <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
       <backPressureObjectThreshold>10000</backPressureObjectThreshold>
       <destination>
-        <groupId>07a67c92-8cf8-32a9-0000-000000000000</groupId>
-        <id>6af58631-39db-3f38-0000-000000000000</id>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>a4fb6272-1889-3a85-0000-000000000000</id>
         <type>PROCESSOR</type>
       </destination>
       <flowFileExpiration>0 sec</flowFileExpiration>
@@ -40,123 +40,18 @@
       <name></name>
       <selectedRelationships>success</selectedRelationships>
       <source>
-        <groupId>07a67c92-8cf8-32a9-0000-000000000000</groupId>
-        <id>31c3f31e-8dd3-3534-0000-000000000000</id>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>33161613-e064-391e-0000-000000000000</id>
         <type>PROCESSOR</type>
       </source>
       <zIndex>0</zIndex>
     </connections>
     <processors>
-      <id>31c3f31e-8dd3-3534-0000-000000000000</id>
-      <parentGroupId>07a67c92-8cf8-32a9-0000-000000000000</parentGroupId>
+      <id>a4fb6272-1889-3a85-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
       <position>
-        <x>0.0</x>
-        <y>0.0</y>
-      </position>
-      <bundle>
-        <artifact>nifi-standard-nar</artifact>
-        <group>org.apache.nifi</group>
-        <version>1.3.0</version>
-      </bundle>
-      <config>
-        <bulletinLevel>WARN</bulletinLevel>
-        <comments></comments>
-        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-        <descriptors>
-          <entry>
-            <key>Base Path</key>
-            <value>
-              <name>Base Path</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Listening Port</key>
-            <value>
-              <name>Listening Port</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Max Data to Receive per Second</key>
-            <value>
-              <name>Max Data to Receive per Second</name>
-            </value>
-          </entry>
-          <entry>
-            <key>SSL Context Service</key>
-            <value>
-              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
-              <name>SSL Context Service</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Authorized DN Pattern</key>
-            <value>
-              <name>Authorized DN Pattern</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Max Unconfirmed Flowfile Time</key>
-            <value>
-              <name>Max Unconfirmed Flowfile Time</name>
-            </value>
-          </entry>
-          <entry>
-            <key>HTTP Headers to receive as Attributes (Regex)</key>
-            <value>
-              <name>HTTP Headers to receive as Attributes (Regex)</name>
-            </value>
-          </entry>
-        </descriptors>
-        <executionNode>ALL</executionNode>
-        <lossTolerant>false</lossTolerant>
-        <penaltyDuration>30 sec</penaltyDuration>
-        <properties>
-          <entry>
-            <key>Base Path</key>
-            <value>collections</value>
-          </entry>
-          <entry>
-            <key>Listening Port</key>
-            <value>8081</value>
-          </entry>
-          <entry>
-            <key>Max Data to Receive per Second</key>
-          </entry>
-          <entry>
-            <key>SSL Context Service</key>
-          </entry>
-          <entry>
-            <key>Authorized DN Pattern</key>
-            <value>.*</value>
-          </entry>
-          <entry>
-            <key>Max Unconfirmed Flowfile Time</key>
-            <value>60 secs</value>
-          </entry>
-          <entry>
-            <key>HTTP Headers to receive as Attributes (Regex)</key>
-            <value>.*</value>
-          </entry>
-        </properties>
-        <runDurationMillis>0</runDurationMillis>
-        <schedulingPeriod>0 sec</schedulingPeriod>
-        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-        <yieldDuration>1 sec</yieldDuration>
-      </config>
-      <name>ListenHTTP</name>
-      <relationships>
-        <autoTerminate>false</autoTerminate>
-        <name>success</name>
-      </relationships>
-      <style></style>
-      <type>org.apache.nifi.processors.standard.ListenHTTP</type>
-    </processors>
-    <processors>
-      <id>457748d1-00cd-3e75-0000-000000000000</id>
-      <parentGroupId>07a67c92-8cf8-32a9-0000-000000000000</parentGroupId>
-      <position>
-        <x>703.0</x>
-        <y>215.0</y>
+        <x>589.583740234375</x>
+        <y>0.486480712890625</y>
       </position>
       <bundle>
         <artifact>nifi-hadoop-nar</artifact>
@@ -275,7 +170,7 @@
           </entry>
           <entry>
             <key>Directory</key>
-            <value>/collections/${'collection'}/</value>
+            <value>${data_load_root}/collections/${'collection'}/</value>
           </entry>
           <entry>
             <key>Conflict Resolution Strategy</key>
@@ -322,11 +217,85 @@
       <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
     </processors>
     <processors>
-      <id>6af58631-39db-3f38-0000-000000000000</id>
-      <parentGroupId>07a67c92-8cf8-32a9-0000-000000000000</parentGroupId>
+      <id>33161613-e064-391e-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
       <position>
-        <x>681.0</x>
-        <y>12.0</y>
+        <x>246.3622133644427</x>
+        <y>262.7342236832389</y>
+      </position>
+      <bundle>
+        <artifact>nifi-update-attribute-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.3.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Delete Attributes Expression</key>
+            <value>
+              <name>Delete Attributes Expression</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Store State</key>
+            <value>
+              <name>Store State</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Stateful Variables Initial Value</key>
+            <value>
+              <name>Stateful Variables Initial Value</name>
+            </value>
+          </entry>
+          <entry>
+            <key>data_load_root</key>
+            <value>
+              <name>data_load_root</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Delete Attributes Expression</key>
+          </entry>
+          <entry>
+            <key>Store State</key>
+            <value>Do not store state</value>
+          </entry>
+          <entry>
+            <key>Stateful Variables Initial Value</key>
+          </entry>
+          <entry>
+            <key>data_load_root</key>
+            <value>/aws/qa</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>Set data_load_root</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+    </processors>
+    <processors>
+      <id>636e6687-cc24-3c89-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>0.0</y>
       </position>
       <bundle>
         <artifact>nifi-standard-nar</artifact>
@@ -339,33 +308,46 @@
         <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
         <descriptors>
           <entry>
-            <key>Log Level</key>
+            <key>Base Path</key>
             <value>
-              <name>Log Level</name>
+              <name>Base Path</name>
             </value>
           </entry>
           <entry>
-            <key>Log Payload</key>
+            <key>Listening Port</key>
             <value>
-              <name>Log Payload</name>
+              <name>Listening Port</name>
             </value>
           </entry>
           <entry>
-            <key>Attributes to Log</key>
+            <key>Max Data to Receive per Second</key>
             <value>
-              <name>Attributes to Log</name>
+              <name>Max Data to Receive per Second</name>
             </value>
           </entry>
           <entry>
-            <key>Attributes to Ignore</key>
+            <key>SSL Context Service</key>
             <value>
-              <name>Attributes to Ignore</name>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
             </value>
           </entry>
           <entry>
-            <key>Log prefix</key>
+            <key>Authorized DN Pattern</key>
             <value>
-              <name>Log prefix</name>
+              <name>Authorized DN Pattern</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Max Unconfirmed Flowfile Time</key>
+            <value>
+              <name>Max Unconfirmed Flowfile Time</name>
+            </value>
+          </entry>
+          <entry>
+            <key>HTTP Headers to receive as Attributes (Regex)</key>
+            <value>
+              <name>HTTP Headers to receive as Attributes (Regex)</name>
             </value>
           </entry>
         </descriptors>
@@ -374,21 +356,30 @@
         <penaltyDuration>30 sec</penaltyDuration>
         <properties>
           <entry>
-            <key>Log Level</key>
-            <value>info</value>
+            <key>Base Path</key>
+            <value>collections</value>
           </entry>
           <entry>
-            <key>Log Payload</key>
-            <value>false</value>
+            <key>Listening Port</key>
+            <value>8081</value>
           </entry>
           <entry>
-            <key>Attributes to Log</key>
+            <key>Max Data to Receive per Second</key>
           </entry>
           <entry>
-            <key>Attributes to Ignore</key>
+            <key>SSL Context Service</key>
           </entry>
           <entry>
-            <key>Log prefix</key>
+            <key>Authorized DN Pattern</key>
+            <value>.*</value>
+          </entry>
+          <entry>
+            <key>Max Unconfirmed Flowfile Time</key>
+            <value>60 secs</value>
+          </entry>
+          <entry>
+            <key>HTTP Headers to receive as Attributes (Regex)</key>
+            <value>(collection)|(filename)</value>
           </entry>
         </properties>
         <runDurationMillis>0</runDurationMillis>
@@ -396,14 +387,14 @@
         <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
         <yieldDuration>1 sec</yieldDuration>
       </config>
-      <name>LogAttribute</name>
+      <name>ListenHTTP</name>
       <relationships>
-        <autoTerminate>true</autoTerminate>
+        <autoTerminate>false</autoTerminate>
         <name>success</name>
       </relationships>
       <style></style>
-      <type>org.apache.nifi.processors.standard.LogAttribute</type>
+      <type>org.apache.nifi.processors.standard.ListenHTTP</type>
     </processors>
   </snippet>
-  <timestamp>07/26/2019 14:57:56 GMT</timestamp>
+  <timestamp>08/28/2019 09:34:17 GMT</timestamp>
 </template>
