@@ -11,7 +11,7 @@
       <backPressureObjectThreshold>10000</backPressureObjectThreshold>
       <destination>
         <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
-        <id>a4fb6272-1889-3a85-0000-000000000000</id>
+        <id>33161613-e064-391e-0000-000000000000</id>
         <type>PROCESSOR</type>
       </destination>
       <flowFileExpiration>0 sec</flowFileExpiration>
@@ -25,11 +25,32 @@
       </source>
       <zIndex>0</zIndex>
     </connections>
+    <connections>
+      <id>5e419c85-3f99-32ce-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>a4fb6272-1889-3a85-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>6afa75be-cff0-39d4-0000-000000000000</groupId>
+        <id>33161613-e064-391e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
     <processors>
       <id>a4fb6272-1889-3a85-0000-000000000000</id>
       <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
       <position>
-        <x>657.583740234375</x>
+        <x>589.583740234375</x>
         <y>0.486480712890625</y>
       </position>
       <bundle>
@@ -149,7 +170,7 @@
           </entry>
           <entry>
             <key>Directory</key>
-            <value>/collections/${'collection'}/</value>
+            <value>${data_load_root}/collections/${'collection'}/</value>
           </entry>
           <entry>
             <key>Conflict Resolution Strategy</key>
@@ -194,6 +215,80 @@
       </relationships>
       <style></style>
       <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+    </processors>
+    <processors>
+      <id>33161613-e064-391e-0000-000000000000</id>
+      <parentGroupId>6afa75be-cff0-39d4-0000-000000000000</parentGroupId>
+      <position>
+        <x>246.3622133644427</x>
+        <y>262.7342236832389</y>
+      </position>
+      <bundle>
+        <artifact>nifi-update-attribute-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.3.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Delete Attributes Expression</key>
+            <value>
+              <name>Delete Attributes Expression</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Store State</key>
+            <value>
+              <name>Store State</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Stateful Variables Initial Value</key>
+            <value>
+              <name>Stateful Variables Initial Value</name>
+            </value>
+          </entry>
+          <entry>
+            <key>data_load_root</key>
+            <value>
+              <name>data_load_root</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Delete Attributes Expression</key>
+          </entry>
+          <entry>
+            <key>Store State</key>
+            <value>Do not store state</value>
+          </entry>
+          <entry>
+            <key>Stateful Variables Initial Value</key>
+          </entry>
+          <entry>
+            <key>data_load_root</key>
+            <value>/aws/qa</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>Set data_load_root</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
     </processors>
     <processors>
       <id>636e6687-cc24-3c89-0000-000000000000</id>
@@ -301,5 +396,5 @@
       <type>org.apache.nifi.processors.standard.ListenHTTP</type>
     </processors>
   </snippet>
-  <timestamp>08/28/2019 08:52:07 GMT</timestamp>
+  <timestamp>08/28/2019 09:34:17 GMT</timestamp>
 </template>
