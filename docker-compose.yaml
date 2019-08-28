@@ -9,7 +9,7 @@ services:
       - ./scripts/:/app/scripts
 
   nifi:
-    image: harisekhon/nifi
+    image: apache/nifi
     depends_on:
       - hadoop
     ports:
@@ -19,3 +19,4 @@ services:
       - ./scripts/:/app/scripts
       - ./conf/:/app/conf
       - ./nifi_sig_check/:/app/nifi_sig_check/
+      - ./nifi_templates/:/app/nifi_templates/
